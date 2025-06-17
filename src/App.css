@@ -1,0 +1,76 @@
+/* --- Home / Menu --- */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+.home h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.menu-group {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.menu-group h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.menu-group button {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Back button --- */
+.back-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* --- Board container border --- */
+.board {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+/* --- Hex styles --- */
+.hexagon {
+  clip-path: polygon(
+    25% 0%,  75% 0%,
+    100% 50%,
+    75% 100%, 25% 100%,
+    0%   50%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+}
+
+/* terrain colors */
+.hexagon.plains   { background: #c2b280; }
+.hexagon.cave     { background: #555; }
+.hexagon.farmland { background: #e2d59b; }
+.hexagon.forest   { background: #228B22; }
+.hexagon.mountain { background: #888; }
+.hexagon.water    { background: #87cefa; }
+
+/* unit placeholder text */
+.unit-placeholder {
+  position: absolute;
+  bottom: 4px;
+  font-size: 0.6rem;
+  background: rgba(0,0,0,0.4);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
