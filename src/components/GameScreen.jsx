@@ -8,6 +8,12 @@ import HexBoard from './HexBoard';
 import buildingData from '../data/buildings.json';
 import calamityData from '../data/calamities.json';
 import { PLACEHOLDERS } from '../assets/modelPlaceholders';
+import avenguardArcher from '../data/pictures/KingdomOfAvengaurdArcher.png';
+import avenguardCatapult from '../data/pictures/KingdomOfAvengaurdCatapault.png';
+import avenguardKnight from '../data/pictures/KingdomOfAvengaurdKnight.png';
+import avenguardMage from '../data/pictures/KingdomOfAvengaurdMage.png';
+import avenguardPaladin from '../data/pictures/KingdomOfAvengaurdPaladin.png';
+import avenguardSoldier from '../data/pictures/KingdomOfAvengaurdSoldier.png';
 
 export default function GameScreen({
   onBack,
@@ -22,7 +28,21 @@ export default function GameScreen({
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [buildTile, setBuildTile] = useState(null);
   const [buildTab, setBuildTab] = useState('units');
-  const modelOptions = [PLACEHOLDERS.red, PLACEHOLDERS.green, PLACEHOLDERS.blue];
+  const avenguardIcons = {
+    Soldier: avenguardSoldier,
+    Archer: avenguardArcher,
+    Knight: avenguardKnight,
+    Mage: avenguardMage,
+    Catapult: avenguardCatapult,
+    'Avenguard Paladin': avenguardPaladin,
+  };
+
+  const modelOptions = [
+    PLACEHOLDERS.red,
+    PLACEHOLDERS.green,
+    PLACEHOLDERS.blue,
+    ...Object.values(avenguardIcons),
+  ];
   const [modelSelections, setModelSelections] = useState({
     units: {},
     settlements: {},
@@ -35,7 +55,11 @@ export default function GameScreen({
     if (!gameState) return;
     const unitMap = {};
     gameState.unitStats?.forEach(u => {
-      unitMap[u.type] = PLACEHOLDERS.unit;
+      if (u.faction === 'Kingdom of Avenguard' && avenguardIcons[u.type]) {
+        unitMap[u.type] = avenguardIcons[u.type];
+      } else {
+        unitMap[u.type] = PLACEHOLDERS.unit;
+      }
     });
     const settlementMap = {};
     gameState.settlements?.forEach(s => {
