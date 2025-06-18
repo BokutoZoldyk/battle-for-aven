@@ -210,7 +210,15 @@ export default function GameScreen({
             <>
               <h2>Build Phase</h2>
               <button onClick={endBuildPhase}>End Build</button>
-              <div style={{ marginTop: 8 }}>
+              <div
+                style={{
+                  marginTop: 8,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 8,
+                  alignItems: 'flex-start',
+                }}
+              >
                 <button onClick={() => setBuildTab('settlements')}>
                   Settlements
                 </button>
