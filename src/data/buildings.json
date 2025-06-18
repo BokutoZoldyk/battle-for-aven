@@ -2,7 +2,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 100,
+    "Building ID": 100,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -16,12 +16,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 101,
+    "Building ID": 101,
     "Faction": "Standard",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -34,12 +34,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 102,
+    "Building ID": 102,
     "Faction": "Standard",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -52,12 +53,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 103,
+    "Building ID": 103,
     "Faction": "Standard",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -70,12 +72,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 104,
+    "Building ID": 104,
     "Faction": "Standard",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -88,12 +91,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Balista Tower",
     "Tier": 2,
-    "ID": 105,
+    "Building ID": 105,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -107,12 +111,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 106,
+    "Building ID": 106,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -126,12 +130,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 107,
+    "Building ID": 107,
     "Faction": "Standard",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -144,12 +148,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 108,
+    "Building ID": 108,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -162,12 +167,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 109,
+    "Building ID": 109,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -181,12 +187,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 110,
+    "Building ID": 110,
     "Faction": "Standard",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -199,12 +205,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 111,
+    "Building ID": 111,
     "Faction": "Standard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -218,7 +225,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "KINGDOM OF AVENGUARD"
@@ -226,7 +233,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 200,
+    "Building ID": 200,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -240,12 +247,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 201,
+    "Building ID": 201,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -258,12 +265,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 202,
+    "Building ID": 202,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -276,12 +284,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 203,
+    "Building ID": 203,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -294,12 +303,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 204,
+    "Building ID": 204,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -312,12 +322,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 205,
+    "Building ID": 205,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -331,12 +342,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 206,
+    "Building ID": 206,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -350,12 +361,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 207,
+    "Building ID": 207,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -368,12 +379,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 208,
+    "Building ID": 208,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -386,12 +398,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 209,
+    "Building ID": 209,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -405,12 +418,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 210,
+    "Building ID": 210,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -423,12 +436,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 211,
+    "Building ID": 211,
     "Faction": "Kingdom of Avenguard",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -442,7 +456,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "MÜSELHEIM"
@@ -450,7 +464,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 300,
+    "Building ID": 300,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -464,12 +478,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 301,
+    "Building ID": 301,
     "Faction": "MÜSELHEIM",
     "Gold Income": 2,
     "Food Incom": 3,
@@ -482,12 +496,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 302,
+    "Building ID": 302,
     "Faction": "MÜSELHEIM",
     "Gold Income": 8,
     "Food Incom": 0,
@@ -500,12 +515,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 303,
+    "Building ID": 303,
     "Faction": "MÜSELHEIM",
     "Gold Income": 5,
     "Food Incom": 0,
@@ -518,12 +534,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 304,
+    "Building ID": 304,
     "Faction": "MÜSELHEIM",
     "Gold Income": 3,
     "Food Incom": 0,
@@ -536,12 +553,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 305,
+    "Building ID": 305,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -555,12 +573,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 306,
+    "Building ID": 306,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -574,12 +592,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 307,
+    "Building ID": 307,
     "Faction": "MÜSELHEIM",
     "Gold Income": 20,
     "Food Incom": 0,
@@ -592,12 +610,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 308,
+    "Building ID": 308,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -610,12 +629,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 309,
+    "Building ID": 309,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -629,12 +649,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 310,
+    "Building ID": 310,
     "Faction": "MÜSELHEIM",
     "Gold Income": 15,
     "Food Incom": 8,
@@ -647,12 +667,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 311,
+    "Building ID": 311,
     "Faction": "MÜSELHEIM",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -666,7 +687,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "The Woodland Haven"
@@ -674,7 +695,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 400,
+    "Building ID": 400,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -688,12 +709,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 401,
+    "Building ID": 401,
     "Faction": "The Woodland Haven",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -706,12 +727,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 402,
+    "Building ID": 402,
     "Faction": "The Woodland Haven",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -724,12 +746,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 403,
+    "Building ID": 403,
     "Faction": "The Woodland Haven",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -742,12 +765,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 404,
+    "Building ID": 404,
     "Faction": "The Woodland Haven",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -760,12 +784,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 405,
+    "Building ID": 405,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -779,12 +804,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 406,
+    "Building ID": 406,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -798,12 +823,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 407,
+    "Building ID": 407,
     "Faction": "The Woodland Haven",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -816,12 +841,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 408,
+    "Building ID": 408,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -834,12 +860,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 409,
+    "Building ID": 409,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -853,12 +880,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 410,
+    "Building ID": 410,
     "Faction": "The Woodland Haven",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -871,12 +898,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 411,
+    "Building ID": 411,
     "Faction": "The Woodland Haven",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -890,7 +918,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "Sons of Rexathimgrod (Rex)"
@@ -898,7 +926,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 400,
+    "Building ID": 400,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -912,12 +940,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 401,
+    "Building ID": 401,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -930,12 +958,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 402,
+    "Building ID": 402,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -948,12 +977,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 403,
+    "Building ID": 403,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -966,12 +996,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 404,
+    "Building ID": 404,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -984,12 +1015,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 405,
+    "Building ID": 405,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1003,12 +1035,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 406,
+    "Building ID": 406,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1022,12 +1054,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 407,
+    "Building ID": 407,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -1040,12 +1072,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 408,
+    "Building ID": 408,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1058,12 +1091,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 409,
+    "Building ID": 409,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1077,12 +1111,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 410,
+    "Building ID": 410,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -1095,12 +1129,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 411,
+    "Building ID": 411,
     "Faction": "Sons of Rexathimgrod (Rex)",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1114,7 +1149,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "The Amethyst Enclave"
@@ -1122,7 +1157,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 400,
+    "Building ID": 400,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1136,12 +1171,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 401,
+    "Building ID": 401,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -1154,12 +1189,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 402,
+    "Building ID": 402,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -1172,12 +1208,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 403,
+    "Building ID": 403,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -1190,12 +1227,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 404,
+    "Building ID": 404,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -1208,12 +1246,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 405,
+    "Building ID": 405,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1227,12 +1266,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 406,
+    "Building ID": 406,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1246,12 +1285,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 407,
+    "Building ID": 407,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -1264,12 +1303,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 408,
+    "Building ID": 408,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1282,12 +1322,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 409,
+    "Building ID": 409,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1301,12 +1342,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 410,
+    "Building ID": 410,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -1319,12 +1360,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 411,
+    "Building ID": 411,
     "Faction": "The Amethyst Enclave",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1338,7 +1380,7 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   },
   {
     "Type": "The Farheed Commonwealth "
@@ -1346,7 +1388,7 @@
   {
     "Type": "Barracks",
     "Tier": 1,
-    "ID": 400,
+    "Building ID": 400,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1360,12 +1402,12 @@
     "Metal Cost": 0,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 1 units"
+    "Description": "Tier 1 building that allows the production of tier 1 units."
   },
   {
     "Type": "Farm",
     "Tier": 1,
-    "ID": 401,
+    "Building ID": 401,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 1,
     "Food Incom": 3,
@@ -1378,12 +1420,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces basic resources needed in the early game."
   },
   {
     "Type": "Mine",
     "Tier": 1,
-    "ID": 402,
+    "Building ID": 402,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 6,
     "Food Incom": 0,
@@ -1396,12 +1439,13 @@
     "Wood Cost": 3,
     "Metal Cost": 0,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 1 building that produces gold and metal."
   },
   {
     "Type": "Metal refinery",
     "Tier": 2,
-    "ID": 403,
+    "Building ID": 403,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 4,
     "Food Incom": 0,
@@ -1414,12 +1458,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces more metal."
   },
   {
     "Type": "Crystal refinery",
     "Tier": 2,
-    "ID": 404,
+    "Building ID": 404,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 2,
     "Food Incom": 0,
@@ -1432,12 +1477,13 @@
     "Wood Cost": 4,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces crystal."
   },
   {
     "Type": "Garrison House",
     "Tier": 2,
-    "ID": 405,
+    "Building ID": 405,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1451,12 +1497,12 @@
     "Metal Cost": 5,
     "Crystal Cost": 0,
     "Population Cost": 1,
-    "Description": "Provides  +1 ranged roll, (1 for 3)"
+    "Description": "Tier 2 defensive building that provides  +1 ranged roll for settlement (1 for 3)."
   },
   {
     "Type": "Armory",
     "Tier": 2,
-    "ID": 406,
+    "Building ID": 406,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1470,12 +1516,12 @@
     "Metal Cost": 4,
     "Crystal Cost": 0,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 2 units"
+    "Description": "Tier 2 building that allows the production of tier 2 units."
   },
   {
     "Type": "Bank:",
     "Tier": 2,
-    "ID": 407,
+    "Building ID": 407,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 15,
     "Food Incom": 0,
@@ -1488,12 +1534,13 @@
     "Wood Cost": 2,
     "Metal Cost": 2,
     "Crystal Cost": 0,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 2 building that produces a significant amount of gold."
   },
   {
     "Type": "Commander’s Lodging",
     "Tier": 3,
-    "ID": 408,
+    "Building ID": 408,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1506,12 +1553,13 @@
     "Wood Cost": 10,
     "Metal Cost": 10,
     "Crystal Cost": 10,
-    "Population Cost": 0
+    "Population Cost": 0,
+    "Description": "Tier 3 building that allows the the production of Commander Unit,"
   },
   {
     "Type": "Special Unit building",
     "Tier": 3,
-    "ID": 409,
+    "Building ID": 409,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1525,12 +1573,12 @@
     "Metal Cost": 8,
     "Crystal Cost": 8,
     "Population Cost": 0,
-    "Description": "Allows the production of tier 3 units"
+    "Description": "Tier 3 building that allows the the production of a commander."
   },
   {
     "Type": "Factory",
     "Tier": 3,
-    "ID": 410,
+    "Building ID": 410,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 12,
     "Food Incom": 8,
@@ -1543,12 +1591,13 @@
     "Wood Cost": 10,
     "Metal Cost": 8,
     "Crystal Cost": 0,
-    "Population Cost": 2
+    "Population Cost": 2,
+    "Description": "Tier 3 building that produces every resource."
   },
   {
     "Type": "Walls",
     "Tier": 3,
-    "ID": 411,
+    "Building ID": 411,
     "Faction": "The Farheed Commonwealth ",
     "Gold Income": 0,
     "Food Incom": 0,
@@ -1562,6 +1611,6 @@
     "Metal Cost": 12,
     "Crystal Cost": 0,
     "Population Cost": 2,
-    "Description": "Provideds 2 hitpoints for settlement and +1 defensive roll (1 for 3)"
+    "Description": "Tier 3 building that provideds +2 hitpoints for settlement and +1 defensive roll (1 for 3)."
   }
 ]

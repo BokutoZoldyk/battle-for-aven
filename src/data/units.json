@@ -2,7 +2,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 10,
+    "Unit ID": 10,
     "Faction": "Standard",
     "HP": 1,
     "Special range roll": "NA",
@@ -20,7 +20,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 12,
+    "Unit ID": 12,
     "Faction": "Standard",
     "HP": 1,
     "Special range roll": "NA",
@@ -38,7 +38,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 13,
+    "Unit ID": 13,
     "Faction": "Standard",
     "HP": 2,
     "Special range roll": "NA",
@@ -56,7 +56,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 14,
+    "Unit ID": 14,
     "Faction": "Standard",
     "HP": 1,
     "Special range roll": "NA",
@@ -74,7 +74,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 15,
+    "Unit ID": 15,
     "Faction": "Standard",
     "HP": 1,
     "Special range roll": "NA",
@@ -92,7 +92,7 @@
   {
     "Type": "SPECIAL UNIT",
     "Tier": 3,
-    "ID": 16,
+    "Unit ID": 16,
     "Faction": "Standard",
     "HP": "NA",
     "Special range roll": "NA",
@@ -110,7 +110,7 @@
   {
     "Type": "COMMANDER",
     "Tier": 3,
-    "ID": 17,
+    "Unit ID": 17,
     "Faction": "Standard",
     "HP": "NA",
     "Special range roll": "NA",
@@ -131,7 +131,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 21,
+    "Unit ID": 21,
     "Faction": "Kingdom of Avenguard",
     "HP": 1,
     "Special range roll": "NA",
@@ -149,7 +149,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 22,
+    "Unit ID": 22,
     "Faction": "Kingdom of Avenguard",
     "HP": 1,
     "Special range roll": "NA",
@@ -167,7 +167,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 23,
+    "Unit ID": 23,
     "Faction": "Kingdom of Avenguard",
     "HP": 2,
     "Special range roll": "NA",
@@ -185,7 +185,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 24,
+    "Unit ID": 24,
     "Faction": "Kingdom of Avenguard",
     "HP": 1,
     "Special range roll": "NA",
@@ -203,7 +203,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 25,
+    "Unit ID": 25,
     "Faction": "Kingdom of Avenguard",
     "HP": 1,
     "Special range roll": "NA",
@@ -221,7 +221,7 @@
   {
     "Type": "Avenguard Paladin",
     "Tier": 3,
-    "ID": 26,
+    "Unit ID": 26,
     "Faction": "Kingdom of Avenguard",
     "HP": 3,
     "Special range roll": "NA",
@@ -239,7 +239,7 @@
   {
     "Type": "Prince Rufus Avenguard",
     "Tier": 3,
-    "ID": 27,
+    "Unit ID": 27,
     "Faction": "Kingdom of Avenguard",
     "HP": 5,
     "Special range roll": "NA",
@@ -261,7 +261,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 31,
+    "Unit ID": 31,
     "Faction": "Müselheim",
     "HP": 1,
     "Special range roll": "NA",
@@ -279,7 +279,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 32,
+    "Unit ID": 32,
     "Faction": "Müselheim",
     "HP": 1,
     "Special range roll": "NA",
@@ -297,7 +297,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 33,
+    "Unit ID": 33,
     "Faction": "Müselheim",
     "HP": 2,
     "Special range roll": "NA",
@@ -315,7 +315,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 34,
+    "Unit ID": 34,
     "Faction": "Müselheim",
     "HP": 1,
     "Special range roll": "NA",
@@ -333,7 +333,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 35,
+    "Unit ID": 35,
     "Faction": "Müselheim",
     "HP": 1,
     "Special range roll": "NA",
@@ -351,7 +351,7 @@
   {
     "Type": "Dungeon Keepers",
     "Tier": 3,
-    "ID": 36,
+    "Unit ID": 36,
     "Faction": "Müselheim",
     "HP": 3,
     "Special range roll": "NA",
@@ -369,7 +369,7 @@
   {
     "Type": "Belarin",
     "Tier": 3,
-    "ID": 37,
+    "Unit ID": 37,
     "Faction": "Müselheim",
     "HP": 6,
     "Special range roll": "NA",
@@ -390,7 +390,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 41,
+    "Unit ID": 41,
     "Faction": "The Woodland Haven",
     "HP": 1,
     "Special range roll": "NA",
@@ -408,7 +408,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 42,
+    "Unit ID": 42,
     "Faction": "The Woodland Haven",
     "HP": 1,
     "Special range roll": "NA",
@@ -426,7 +426,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 43,
+    "Unit ID": 43,
     "Faction": "The Woodland Haven",
     "HP": 2,
     "Special range roll": "NA",
@@ -444,7 +444,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 44,
+    "Unit ID": 44,
     "Faction": "The Woodland Haven",
     "HP": 1,
     "Special range roll": "NA",
@@ -462,7 +462,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 45,
+    "Unit ID": 45,
     "Faction": "The Woodland Haven",
     "HP": 1,
     "Special range roll": "NA",
@@ -480,7 +480,7 @@
   {
     "Type": "Elven Longbows",
     "Tier": 3,
-    "ID": 46,
+    "Unit ID": 46,
     "Faction": "The Woodland Haven",
     "HP": 1,
     "Special range roll": "NA",
@@ -498,7 +498,7 @@
   {
     "Type": "Alindeal",
     "Tier": 3,
-    "ID": 47,
+    "Unit ID": 47,
     "Faction": "The Woodland Haven",
     "HP": 2,
     "Special range roll": "NA",
@@ -520,7 +520,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 51,
+    "Unit ID": 51,
     "Faction": "Sons of Rexathimgrod",
     "HP": 2,
     "Special range roll": "NA",
@@ -538,7 +538,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 52,
+    "Unit ID": 52,
     "Faction": "Sons of Rexathimgrod",
     "HP": 1,
     "Special range roll": "NA",
@@ -556,7 +556,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 53,
+    "Unit ID": 53,
     "Faction": "Sons of Rexathimgrod",
     "HP": 2,
     "Special range roll": "NA",
@@ -574,7 +574,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 54,
+    "Unit ID": 54,
     "Faction": "Sons of Rexathimgrod",
     "HP": 1,
     "Special range roll": "NA",
@@ -592,7 +592,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 55,
+    "Unit ID": 55,
     "Faction": "Sons of Rexathimgrod",
     "HP": 1,
     "Special range roll": "NA",
@@ -610,7 +610,7 @@
   {
     "Type": "Howlers",
     "Tier": 3,
-    "ID": 56,
+    "Unit ID": 56,
     "Faction": "Sons of Rexathimgrod",
     "HP": 2,
     "Special range roll": "NA",
@@ -628,7 +628,7 @@
   {
     "Type": "Rexathimgrod ",
     "Tier": 3,
-    "ID": 57,
+    "Unit ID": 57,
     "Faction": "Sons of Rexathimgrod",
     "HP": 4,
     "Special range roll": "NA",
@@ -650,7 +650,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 61,
+    "Unit ID": 61,
     "Faction": "The Amethyst Enclave",
     "HP": 1,
     "Special range roll": "NA",
@@ -669,7 +669,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 62,
+    "Unit ID": 62,
     "Faction": "The Amethyst Enclave",
     "HP": 1,
     "Special range roll": "NA",
@@ -688,7 +688,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 63,
+    "Unit ID": 63,
     "Faction": "The Amethyst Enclave",
     "HP": 2,
     "Special range roll": "NA",
@@ -707,7 +707,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 64,
+    "Unit ID": 64,
     "Faction": "The Amethyst Enclave",
     "HP": 1,
     "Special range roll": "NA",
@@ -726,7 +726,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 65,
+    "Unit ID": 65,
     "Faction": "The Amethyst Enclave",
     "HP": 1,
     "Special range roll": "NA",
@@ -745,7 +745,7 @@
   {
     "Type": "Warlock",
     "Tier": 3,
-    "ID": 66,
+    "Unit ID": 66,
     "Faction": "The Amethyst Enclave",
     "HP": 1,
     "Special range roll": "1 for 4",
@@ -764,7 +764,7 @@
   {
     "Type": "Selina Sorek",
     "Tier": 3,
-    "ID": 67,
+    "Unit ID": 67,
     "Faction": "The Amethyst Enclave",
     "HP": 2,
     "Special range roll": "1 for 5",
@@ -786,7 +786,7 @@
   {
     "Type": "Soldier",
     "Tier": 1,
-    "ID": 71,
+    "Unit ID": 71,
     "Faction": "The Farheed Commonwealth ",
     "HP": 1,
     "Range": 0,
@@ -804,7 +804,7 @@
   {
     "Type": "Archer",
     "Tier": 1,
-    "ID": 72,
+    "Unit ID": 72,
     "Faction": "The Farheed Commonwealth ",
     "HP": 1,
     "Range": 2,
@@ -822,7 +822,7 @@
   {
     "Type": "Knight",
     "Tier": 2,
-    "ID": 73,
+    "Unit ID": 73,
     "Faction": "The Farheed Commonwealth ",
     "HP": 2,
     "Range": 0,
@@ -840,7 +840,7 @@
   {
     "Type": "Mage",
     "Tier": 2,
-    "ID": 74,
+    "Unit ID": 74,
     "Faction": "The Farheed Commonwealth ",
     "HP": 1,
     "Range": 2,
@@ -858,7 +858,7 @@
   {
     "Type": "Catapult",
     "Tier": 2,
-    "ID": 75,
+    "Unit ID": 75,
     "Faction": "The Farheed Commonwealth ",
     "HP": 1,
     "Range": 2,
@@ -876,7 +876,7 @@
   {
     "Type": "SPECIAL UNIT",
     "Tier": 3,
-    "ID": 76,
+    "Unit ID": 76,
     "Faction": "The Farheed Commonwealth ",
     "HP": 2,
     "Special range roll": "1 for 3 - costs 4 gold",
@@ -895,7 +895,7 @@
   {
     "Type": "Vel Witking",
     "Tier": 3,
-    "ID": 77,
+    "Unit ID": 77,
     "Faction": "The Farheed Commonwealth ",
     "HP": 3,
     "Special range roll": "1 for 4",
