@@ -10,6 +10,7 @@ export default function HexBoard({
   rows = 10,
   cols = 10,
   highlightTiles = [],
+  modelSelections = {},
 }) {
   const flatTiles = Array.isArray(tiles[0]) ? tiles.flat() : tiles;
 
@@ -33,6 +34,7 @@ export default function HexBoard({
             units={units}
             settlements={settlements}
             onTileClick={onTileClick}
+            modelSelections={modelSelections}
           />
         </g>
       ))}
