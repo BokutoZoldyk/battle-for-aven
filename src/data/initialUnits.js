@@ -7,22 +7,22 @@ import Unit from '../models/Unit';
  * from your Excel → JSON data.
  */
 export const allUnits = rawUnits.map(u => new Unit({
-  id:             u.ID,
+  id:             u['Unit ID'],
   type:           u.Type,
   tier:           u.Tier,
   faction:        u.Faction,
   hp:             u.HP,
-  specialRange:   u.SpecialRange ?? 0,
+  specialRange:   Number(u['Special range roll']) || 0,
   range:          u.Range ?? 0,
-  rangedRoll:     u['Ranged roll']        || '',
+  rangedRoll:     u['Ranged Roll']        || '',
   offensiveRoll:  u['Offensive Roll']     || '',
   defensiveRoll:  u['Defensive Roll']     || '',
   cost: {
-    gold:       u.Gold     || 0,
-    food:       u.Food     || 0,
-    wood:       u.Wood     || 0,
-    metal:      u.Metal    || 0,
-    crystal:    u.Crystal  || 0,
-    population: u.Population || 0,
+    gold:       Number(u['Gold Cost'])       || 0,
+    food:       Number(u['Food Cost'])       || 0,
+    wood:       Number(u['Wood Cost'])       || 0,
+    metal:      Number(u['Metal Cost'])      || 0,
+    crystal:    Number(u['Crystal Cost'])    || 0,
+    population: Number(u['Population Cost']) || 0,
   }
 }));
