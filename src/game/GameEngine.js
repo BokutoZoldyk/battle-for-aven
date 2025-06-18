@@ -9,28 +9,21 @@ export default class GameEngine {
     this.calamities = new CalamityManager(this.game);
     this.turnOrder = [];           // e.g. ['Player1','Player2',...]
     this.aiPlayers = [];
+    this.startZones = {};
 
     // set up AI players
     aiConfig.forEach(({ id, strategy }) => {
       this.aiPlayers.push(new AIPlayer(id, strategy));
     });
 
-    // initial deal
-    this.game.dealStartingAssets();
-    // place the starting Archer next to each HQ
-    for (let p = 1; p <= players; p++) {
-      const archer = this.game.units.find(
-        u => u.type === 'Archer' && u.faction === `Player${p}`
-      );
-      const hq = this.game.settlements.find(
-        s => s.faction === `Player${p}` && s.type === 'City'
-      );
-      if (archer && hq && hq.tile) {
-        archer.tile = { row: hq.tile.row, col: hq.tile.col + 1 };
-      }
+    this._initStartZones(players, rows, cols);
+    // automatically place AI players
+    for (let p = 2; p <= players; p++) {
+      const zone = this.startZones[`Player${p}`] || [];
+      if (zone.length) this.placeStartingCity(`Player${p}`, zone[0]);
     }
 
-    // spawn calamities
+    // spawn calamities after setup
     this.calamities.spawnInitial(players);
 
     // build the turn order
@@ -38,6 +31,55 @@ export default class GameEngine {
       this.turnOrder.push(`Player${p}`);
     }
     this.winner = null;
+  }
+
+  _initStartZones(players, rows, cols) {
+    const corners = [
+      { row: 0, col: 0 },
+      { row: 0, col: cols - 3 },
+      { row: rows - 3, col: 0 },
+      { row: rows - 3, col: cols - 3 },
+    ];
+
+    for (let p = 1; p <= players; p++) {
+      const c = corners[(p - 1) % corners.length];
+      const options = [];
+      for (let r = 0; r < 3; r++) {
+        for (let d = 0; d < 3; d++) {
+          const row = c.row + (c.row === 0 ? r : -r);
+          const col = c.col + (c.col === 0 ? d : -d);
+          if (row >= 0 && row < rows && col >= 0 && col < cols) {
+            options.push({ row, col });
+          }
+        }
+      }
+      // shuffle and take first 7
+      for (let i = options.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [options[i], options[j]] = [options[j], options[i]];
+      }
+      this.startZones[`Player${p}`] = options.slice(0, 7);
+    }
+  }
+
+  placeStartingCity(playerId, tile) {
+    const city = this.game.settlements.find(
+      s => s.faction === playerId && s.type === 'City'
+    );
+    if (city) city.tile = tile;
+
+    const soldier = this.game.units.find(
+      u => u.type === 'Soldier' && u.faction === playerId
+    );
+    if (soldier) soldier.tile = { row: tile.row, col: Math.min(tile.col + 1, this.game.cols - 1) };
+
+    const archer = this.game.units.find(
+      u => u.type === 'Archer' && u.faction === playerId
+    );
+    if (archer) archer.tile = { row: tile.row, col: Math.max(tile.col - 1, 0) };
+
+    // once placed, clear zone for player
+    this.startZones[playerId] = [];
   }
 
   nextTurn() {
@@ -77,6 +119,7 @@ export default class GameEngine {
       ...this.game.getState(),
       turn: this.game.turn,
       winner: this.winner,
+      startZones: this.startZones,
     };
   }
 

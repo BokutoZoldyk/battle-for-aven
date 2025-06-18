@@ -15,9 +15,10 @@ export default function GameScreen({
   // === Engine setup ===
   const engineRef = useRef(null);
   const [gameState, setGameState] = useState(null);
-  const [phase, setPhase] = useState('build'); // 'build' | 'move' | 'waiting'
+  const [phase, setPhase] = useState('setup'); // 'setup' | 'build' | 'move' | 'waiting'
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [buildTile, setBuildTile] = useState(null);
+  const [buildTab, setBuildTab] = useState('units');
 
   useEffect(() => {
     engineRef.current = new GameEngine({
@@ -31,6 +32,7 @@ export default function GameScreen({
       ],
     });
     setGameState(engineRef.current.getState());
+    setPhase('setup');
   }, [players, rows, cols]);
 
   const refresh = () => setGameState(engineRef.current.getState());
@@ -56,6 +58,18 @@ export default function GameScreen({
   };
 
   const handleTileClick = (tile) => {
+    if (phase === 'setup') {
+      const options = gameState.startZones?.Player1 || [];
+      const allowed = options.some(
+        (t) => t.row === tile.row && t.col === tile.col
+      );
+      if (allowed) {
+        engineRef.current.placeStartingCity('Player1', tile);
+        refresh();
+        setPhase('build');
+      }
+      return;
+    }
     if (phase === 'build') {
       const occupied = gameState.units.some(
         (u) => u.tile?.row === tile.row && u.tile?.col === tile.col
@@ -169,10 +183,27 @@ export default function GameScreen({
             boxSizing: 'border-box',
           }}
         >
+          {phase === 'setup' && (
+            <>
+              <h2>Starting Placement</h2>
+              <p>Select a highlighted tile for your City.</p>
+            </>
+          )}
           {phase === 'build' && (
             <>
               <h2>Build Phase</h2>
               <button onClick={endBuildPhase}>End Build</button>
+              <div style={{ marginTop: 8 }}>
+                <button onClick={() => setBuildTab('settlements')}>
+                  Settlements
+                </button>
+                <button onClick={() => setBuildTab('buildings')}>
+                  Buildings
+                </button>
+                <button onClick={() => setBuildTab('units')}>
+                  Units
+                </button>
+              </div>
             </>
           )}
           {phase === 'move' && (
@@ -190,7 +221,7 @@ export default function GameScreen({
             </>
           )}
 
-          {phase === 'build' && buildTile && (
+          {phase === 'build' && buildTile && buildTab === 'units' && (
             <div style={{ marginTop: '16px' }}>
               <h3>
                 Build on ({buildTile.row}, {buildTile.col})
@@ -255,9 +286,9 @@ export default function GameScreen({
               units={units}
               settlements={settlements}
               onTileClick={handleTileClick}
-              selected={selectedUnit?.id}
-              highlightTile={buildTile}
-              phase={phase}
+              highlightTiles={
+                phase === 'setup' ? gameState.startZones.Player1 : buildTile ? [buildTile] : []
+              }
               // pass rows/cols so HexBoard can size itself responsively
               rows={rows}
               cols={cols}
