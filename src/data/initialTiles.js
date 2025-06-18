@@ -10,3 +10,4 @@ export function makeInitialTiles(rows = 10, cols = 10) {
   }
   return tiles;
 }
+
