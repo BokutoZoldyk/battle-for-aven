@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "The Revolutionary",
+    "Calamity ID": 100,
+    "HP": 2,
+    "Special range roll": "NA",
+    "Range": "NA",
+    "Ranged Roll": "NA",
+    "Offensive Roll": "NA",
+    "Defensive Roll": "2 for 3",
+    "Description": "Dissatisfied with the state of Aven, the Revolutionary seeks to establish his own kingdom.\r\nThe revolutionary spawns with a soldier protecting him on each surrounding tile. The first player to claim the tile the revolutionary is on will receive:\r\n\r\n+10 Population, +40 gold and have each settlement give +2 population.\r"
+  },
+  {
+    "Type": "Revolutionary Soldier",
+    "Calamity ID": 101,
+    "HP": 1,
+    "Special range roll": "NA",
+    "Range": "NA",
+    "Ranged Roll": "NA",
+    "Offensive Roll": "NA",
+    "Defensive Roll": "1 for 2",
+    "Description": "Soldiers of the Revolutionary"
+  },
+  {
+    "Type": "Galen The Swordsman",
+    "Calamity ID": 200,
+    "HP": 4,
+    "Special range roll": "NA",
+    "Range": "NA",
+    "Ranged Roll": "NA",
+    "Offensive Roll": "2 for 3",
+    "Defensive Roll": "3 for 3",
+    "Description": "Galen is a renowned hero in Aven, known for never losing in single combat. He is as powerful as a commander tier unit. He has an open challenge to any who defeats him. The first player to claim the tile Galen is on will receive:\r\n\r\n\r\n+10 Gold, 5 Metal and 5 Crystal and Galen will join their cause.\r"
+  },
+  {
+    "Type": "Atriarch",
+    "Calamity ID": 300,
+    "HP": 5,
+    "Special range roll": "NA",
+    "Range": "NA",
+    "Ranged Roll": "NA",
+    "Offensive Roll": "NA",
+    "Defensive Roll": "1 for 5",
+    "Description": "Atriarch is a huge reptilian creature that has terrorized Aven.\r\n\r\nThe first player to claim the tile Galen is on will receive:\r\n \r\n+1 Hipoint to every unit you control.\r"
+  },
+  {
+    "Type": "Vanessa The Seer",
+    "Calamity ID": 400,
+    "HP": 2,
+    "Special range roll": "NA",
+    "Range": 1,
+    "Ranged Roll": "2 for 3",
+    "Offensive Roll": "NA",
+    "Defensive Roll": "1 for 3",
+    "Description": "Vanessa was once a renowned mage before she fell from grace. Now she sits in her swamp of death, cursing any who dare cross her path.\r\n\r\nAll units within one tile of Vanessa will be poisoned and will be attacked by a 1 for 1 d6. \r\n\r\nThe first player to claim the tile Vanessa is on will receive:\r\n \r\n+10 Crystal, +20 gold, every mage you field will have their ranged attack increase by +1. Eg 1 for 3 becomes 1 for 4.\r"
+  },
+  {
+    "Type": "Jeremiah The Hobgoblin Trickster\r",
+    "Calamity ID": 500,
+    "HP": 1000,
+    "Special range roll": "NA",
+    "Range": "NA",
+    "Ranged Roll": "NA",
+    "Offensive Roll": "NA",
+    "Defensive Roll": "1 for 6",
+    "Description": "Jaremiah is the most notorious criminal to ever walk Aven. He is an immortal, omnipotent god who transcends all dimensional and temporal limitations. Or so he says. At the very least, it is almost impossible to hit him. The only way to defeat him is to have one of your unit types in four of the surrounding tiles he is in. You may try to attack him, but he will take no damage and roll a 1 for 6 on you.\r\n\r\nWhen turn ends with four of one player’s units around Jeremiah, he will despawn and leave his tile open.\r\n\r\nThe first player to claim the tile Jeremiah is on will receive:\r\n \r\n+150 Gold, + 20 population, +20 food\r"
+  }
+]
