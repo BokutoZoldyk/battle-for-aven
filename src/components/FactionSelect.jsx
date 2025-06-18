@@ -10,7 +10,8 @@ export default function FactionSelect({ players, onBack, onSelect }) {
     'The Amethyst Enclave',
     'The Farheed Commonwealth',
   ];
-  const factions = ALL_FACTIONS.slice(0, players);
+  // Show all factions regardless of player count
+  const factions = ALL_FACTIONS;
   return (
     <div className="home">
       <h1>Select Your Faction</h1>
