@@ -14,17 +14,19 @@ export default function HexTile({ tile, units, settlements, onTileClick }) {
 
   // build the 6-point polygon
   const points = Array.from({ length: 6 }).map((_, i) => {
-    const angle = Math.PI / 180 * (60 * i - 30);
+    const angle = Math.PI / 180 * (60 * i);
     const px = size * Math.cos(angle) + size;
     const py = size * Math.sin(angle) + size;
     return `${px},${py}`;
   }).join(' ');
 
   const terrainColors = {
-    plains:   '#D2B48C',
-    forest:   '#228B22',
-    mountain: '#A9A9A9',
-    water:    '#87CEFA',
+    plains:   '#c2b280', // darkish yellow
+    caves:    '#800080', // purple
+    farmland: '#98fb98', // light green
+    forest:   '#228B22', // dark green
+    mountain: '#A9A9A9', // silver/grey
+    water:    '#87CEFA', // blue
   };
   const fill = terrainColors[terrain] || '#EEE';
 
