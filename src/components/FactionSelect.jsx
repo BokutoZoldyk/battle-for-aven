@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function FactionSelect({ players, onBack, onSelect }) {
-  const factions = Array.from({ length: players }, (_, i) => `Player${i + 1}`);
+  const ALL_FACTIONS = [
+    'The Kingdom of Avenguard',
+    'Müselheim',
+    'The Woodland Haven',
+    'Sons of Rexathimgrod (Rex)',
+    'The Amethyst Enclave',
+    'The Farheed Commonwealth',
+  ];
+  const factions = ALL_FACTIONS.slice(0, players);
   return (
     <div className="home">
       <h1>Select Your Faction</h1>
