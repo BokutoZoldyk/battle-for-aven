@@ -30,6 +30,25 @@ export default function GameScreen({
     calamities: {},
   });
 
+  // once game state is available, prefill model selections with placeholders
+  useEffect(() => {
+    if (!gameState) return;
+    const unitMap = {};
+    gameState.unitStats?.forEach(u => {
+      unitMap[u.type] = PLACEHOLDERS.unit;
+    });
+    const settlementMap = {};
+    gameState.settlements?.forEach(s => {
+      settlementMap[s.type] = PLACEHOLDERS.settlement;
+    });
+    setModelSelections({
+      units: unitMap,
+      settlements: settlementMap,
+      buildings: {},
+      calamities: {},
+    });
+  }, [gameState]);
+
   useEffect(() => {
     engineRef.current = new GameEngine({
       players,
@@ -210,20 +229,6 @@ export default function GameScreen({
             <>
               <h2>Build Phase</h2>
               <button onClick={endBuildPhase}>End Build</button>
-              <div style={{ marginTop: 8 }}>
-                <button onClick={() => setBuildTab('settlements')}>
-                  Settlements
-                </button>
-                <button onClick={() => setBuildTab('buildings')}>
-                  Buildings
-                </button>
-                <button onClick={() => setBuildTab('units')}>
-                  Units
-                </button>
-                <button onClick={() => setBuildTab('calamities')}>
-                  Calamities
-                </button>
-              </div>
               {buildTab === 'units' && (
                 <div style={{ marginTop: 8 }}>
                   {unitStats.map(u => (
@@ -370,8 +375,27 @@ export default function GameScreen({
             alignItems: 'center',
             justifyContent: 'center',
             background: '#e2e2e2',
+            position: 'relative',
           }}
         >
+          {phase === 'build' && (
+            <div
+              style={{
+                position: 'absolute',
+                left: 8,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 8,
+              }}
+            >
+              <button onClick={() => setBuildTab('settlements')}>Settlements</button>
+              <button onClick={() => setBuildTab('buildings')}>Buildings</button>
+              <button onClick={() => setBuildTab('units')}>Units</button>
+              <button onClick={() => setBuildTab('calamities')}>Calamities</button>
+            </div>
+          )}
           <div
             style={{
               width: '100%',

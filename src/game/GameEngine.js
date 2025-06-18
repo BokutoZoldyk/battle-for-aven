@@ -34,31 +34,17 @@ export default class GameEngine {
   }
 
   _initStartZones(players, rows, cols) {
-    const corners = [
-      { row: 0, col: 0 },
-      { row: 0, col: cols - 3 },
-      { row: rows - 3, col: 0 },
-      { row: rows - 3, col: cols - 3 },
-    ];
-
     for (let p = 1; p <= players; p++) {
-      const c = corners[(p - 1) % corners.length];
       const options = [];
-      for (let r = 0; r < 3; r++) {
-        for (let d = 0; d < 3; d++) {
-          const row = c.row + (c.row === 0 ? r : -r);
-          const col = c.col + (c.col === 0 ? d : -d);
-          if (row >= 0 && row < rows && col >= 0 && col < cols) {
-            options.push({ row, col });
-          }
+      while (options.length < 7) {
+        const row = Math.floor(Math.random() * (rows - 2)) + 1; // 1..rows-2
+        const col = Math.floor(Math.random() * (cols - 2)) + 1; // 1..cols-2
+        const key = `${row},${col}`;
+        if (!options.some(t => `${t.row},${t.col}` === key)) {
+          options.push({ row, col });
         }
       }
-      // shuffle and take first 7
-      for (let i = options.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [options[i], options[j]] = [options[j], options[i]];
-      }
-      this.startZones[`Player${p}`] = options.slice(0, 7);
+      this.startZones[`Player${p}`] = options;
     }
   }
 
