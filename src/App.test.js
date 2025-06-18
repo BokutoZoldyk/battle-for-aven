@@ -9,9 +9,9 @@ test('renders Battle for Aven title on the home screen', () => {
   expect(title).toBeInTheDocument();
 });
 
-test('has PLAY buttons for 4, 5, and 6 players', () => {
+test('shows menu options', () => {
   render(<App />);
-  expect(screen.getByText(/4 player 10×10/i)).toBeInTheDocument();
-  expect(screen.getByText(/5 player 12×12/i)).toBeInTheDocument();
-  expect(screen.getByText(/6 player 14×14/i)).toBeInTheDocument();
+  expect(screen.getByText(/single player/i)).toBeInTheDocument();
+  expect(screen.getByText(/multiplayer/i)).toBeInTheDocument();
+  expect(screen.getByText(/rules/i)).toBeInTheDocument();
 });
