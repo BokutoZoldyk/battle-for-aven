@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import GameEngine from '../game/GameEngine';
+import GameEngine from './game/GameEngine';
 
- import { AI_STRATEGIES } from '../AI/AIPlayer';
- import HexBoard from './HexBoard';
+import { AI_STRATEGIES } from './AI/AIPlayer';
+import HexBoard from './components/HexBoard';
  
  export default function GameScreen({
    onBack,
