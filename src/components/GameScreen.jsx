@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import GameEngine from '../game/GameEngine';
 import { AI_STRATEGIES } from '../AI/AIPlayer';
 import HexBoard from './HexBoard';
+import buildingData from '../data/buildings.json';
+import calamityData from '../data/calamities.json';
+import { PLACEHOLDERS } from '../assets/modelPlaceholders';
 
 export default function GameScreen({
   onBack,
@@ -19,6 +22,13 @@ export default function GameScreen({
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [buildTile, setBuildTile] = useState(null);
   const [buildTab, setBuildTab] = useState('units');
+  const modelOptions = [PLACEHOLDERS.red, PLACEHOLDERS.green, PLACEHOLDERS.blue];
+  const [modelSelections, setModelSelections] = useState({
+    units: {},
+    settlements: {},
+    buildings: {},
+    calamities: {},
+  });
 
   useEffect(() => {
     engineRef.current = new GameEngine({
@@ -36,6 +46,13 @@ export default function GameScreen({
   }, [players, rows, cols]);
 
   const refresh = () => setGameState(engineRef.current.getState());
+
+  const updateModel = (category, type, value) => {
+    setModelSelections((prev) => ({
+      ...prev,
+      [category]: { ...prev[category], [type]: value },
+    }));
+  };
 
   // === Action handlers ===
   const handleBuild = (unitType) => {
@@ -203,7 +220,90 @@ export default function GameScreen({
                 <button onClick={() => setBuildTab('units')}>
                   Units
                 </button>
+                <button onClick={() => setBuildTab('calamities')}>
+                  Calamities
+                </button>
               </div>
+              {buildTab === 'units' && (
+                <div style={{ marginTop: 8 }}>
+                  {unitStats.map(u => (
+                    <div key={u.type} style={{ marginBottom: 4 }}>
+                      <label>
+                        {u.type}
+                        <select
+                          value={modelSelections.units[u.type] || modelOptions[0]}
+                          onChange={e => updateModel('units', u.type, e.target.value)}
+                          style={{ marginLeft: 4 }}
+                        >
+                          {modelOptions.map(opt => (
+                            <option key={opt} value={opt}>{opt.split('/').pop()}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {buildTab === 'settlements' && (
+                <div style={{ marginTop: 8 }}>
+                  {[...new Set(settlements.map(s => s.type))].map(t => (
+                    <div key={t} style={{ marginBottom: 4 }}>
+                      <label>
+                        {t}
+                        <select
+                          value={modelSelections.settlements[t] || modelOptions[0]}
+                          onChange={e => updateModel('settlements', t, e.target.value)}
+                          style={{ marginLeft: 4 }}
+                        >
+                          {modelOptions.map(opt => (
+                            <option key={opt} value={opt}>{opt.split('/').pop()}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {buildTab === 'buildings' && (
+                <div style={{ marginTop: 8 }}>
+                  {[...new Set(buildingData.map(b => b.Type))].map(t => (
+                    <div key={t} style={{ marginBottom: 4 }}>
+                      <label>
+                        {t}
+                        <select
+                          value={modelSelections.buildings[t] || modelOptions[0]}
+                          onChange={e => updateModel('buildings', t, e.target.value)}
+                          style={{ marginLeft: 4 }}
+                        >
+                          {modelOptions.map(opt => (
+                            <option key={opt} value={opt}>{opt.split('/').pop()}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {buildTab === 'calamities' && (
+                <div style={{ marginTop: 8 }}>
+                  {[...new Set(calamityData.map(c => c.Type))].map(t => (
+                    <div key={t} style={{ marginBottom: 4 }}>
+                      <label>
+                        {t}
+                        <select
+                          value={modelSelections.calamities[t] || modelOptions[0]}
+                          onChange={e => updateModel('calamities', t, e.target.value)}
+                          style={{ marginLeft: 4 }}
+                        >
+                          {modelOptions.map(opt => (
+                            <option key={opt} value={opt}>{opt.split('/').pop()}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
             </>
           )}
           {phase === 'move' && (
@@ -292,6 +392,7 @@ export default function GameScreen({
               // pass rows/cols so HexBoard can size itself responsively
               rows={rows}
               cols={cols}
+              modelSelections={modelSelections}
             />
           </div>
         </main>

@@ -2,7 +2,7 @@
 import React from 'react';
 import HexUnit from './HexUnit';
 
-export default function HexTile({ tile, units, settlements, onTileClick }) {
+export default function HexTile({ tile, units, settlements, onTileClick, modelSelections = {} }) {
   const { row, col, terrain } = tile;
 
   // === layout math (you can tweak size/origin to match your board) ===
@@ -39,26 +39,51 @@ export default function HexTile({ tile, units, settlements, onTileClick }) {
       {units
         .filter(u => u.tile?.row === row && u.tile?.col === col)
         .map(u => (
-          <HexUnit key={u.id} unit={u} size={12} />
+          <HexUnit
+            key={u.id}
+            unit={u}
+            size={12}
+            center={{ x: size, y: size }}
+            modelSelections={modelSelections}
+          />
         ))
       }
 
       {/* any settlement on this tile */}
       {settlements
         .filter(s => s.tile?.row === row && s.tile?.col === col)
-        .map(s => (
-          <text
-            key={s.id}
-            x={size}
-            y={size * 1.6}
-            textAnchor="middle"
-            fontSize="10"
-            fill="black"
-          >
-            {s.type[0]}
-          </text>
-        ))
-      }
+        .map(s => {
+          const imgSrc = modelSelections?.settlements?.[s.type];
+          if (imgSrc) {
+            const w = 20;
+            const h = 20;
+            const xPos = size - w / 2;
+            const yPos = size * 1.6 - h / 2;
+            return (
+              <image
+                key={s.id}
+                href={imgSrc}
+                x={xPos}
+                y={yPos}
+                width={w}
+                height={h}
+              />
+            );
+          }
+          return (
+            <text
+              key={s.id}
+              x={size}
+              y={size * 1.6}
+              textAnchor="middle"
+              fontSize="10"
+              fill="black"
+            >
+              {s.type[0]}
+            </text>
+          );
+        })}
+      
     </g>
   );
 }

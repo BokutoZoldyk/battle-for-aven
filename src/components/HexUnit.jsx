@@ -7,7 +7,7 @@ import React from 'react';
  *  - unit: { id, faction, type, tile: {row, col} }
  *  - size: pixel diameter
  */
-export default function HexUnit({ unit, size = 16 }) {
+export default function HexUnit({ unit, size = 16, center = { x: 30, y: 30 }, modelSelections = {} }) {
   const colors = {
     Player1: 'blue',
     Player2: 'red',
@@ -16,9 +16,26 @@ export default function HexUnit({ unit, size = 16 }) {
   };
   const color = colors[unit.faction] || 'black';
 
+  const imgSrc = modelSelections?.units?.[unit.type];
+
+  if (imgSrc) {
+    const x = center.x - size / 2;
+    const y = center.y - size / 2;
+    return (
+      <image
+        href={imgSrc}
+        x={x}
+        y={y}
+        width={size}
+        height={size}
+      />
+    );
+  }
+
   return (
     <circle
-      cx="50%" cy="50%"
+      cx={center.x}
+      cy={center.y}
       r={size / 2}
       fill={color}
       stroke="white"
