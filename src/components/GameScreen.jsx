@@ -1,38 +1,277 @@
 // src/components/GameScreen.jsx
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import GameEngine from '../game/GameEngine';
+import { AI_STRATEGIES } from '../AI/AIPlayer';
 import HexBoard from './HexBoard';
-import Game     from '../models/Game';
 
-export default function GameScreen({ players, rows, cols, onExit }) {
-  // we only want to create the Game instance once
-  const [game] = useState(() => {
-    const g = new Game({ players });
-    g.dealStartingAssets();
-    return g;
-  });
+export default function GameScreen({
+  onBack,
+  players = 4,
+  rows = 10,
+  cols = 10,
+}) {
+  // === Engine setup ===
+  const engineRef = useRef(null);
+  const [gameState, setGameState] = useState(null);
+  const [phase, setPhase] = useState('build'); // 'build' | 'move' | 'waiting'
+  const [selectedUnit, setSelectedUnit] = useState(null);
+  const [buildTile, setBuildTile] = useState(null);
 
-  // if you ever need to re-deal on rows/cols change:
   useEffect(() => {
-    // e.g. you could call g.reset(rows,cols) here
-  }, [rows, cols, game]);
+    engineRef.current = new GameEngine({
+      players,
+      rows,
+      cols,
+      aiConfig: [
+        { id: 'Player2', strategy: AI_STRATEGIES.AGGRESSIVE },
+        { id: 'Player3', strategy: AI_STRATEGIES.BALANCED },
+        { id: 'Player4', strategy: AI_STRATEGIES.DEFENSIVE },
+      ],
+    });
+    setGameState(engineRef.current.getState());
+  }, [players, rows, cols]);
+
+  const refresh = () => setGameState(engineRef.current.getState());
+
+  // === Action handlers ===
+  const handleBuild = (unitType) => {
+    engineRef.current.game.applyBuild({
+      playerId: 'Player1',
+      unitType,
+      tile: buildTile,
+    });
+    setBuildTile(null);
+    refresh();
+  };
+
+  const handleMove = (tile) => {
+    engineRef.current.game.applyMove({
+      unitId: selectedUnit.id,
+      target: tile,
+    });
+    setSelectedUnit(null);
+    refresh();
+  };
+
+  const handleTileClick = (tile) => {
+    if (phase === 'build') {
+      const occupied = gameState.units.some(
+        (u) => u.tile?.row === tile.row && u.tile?.col === tile.col
+      );
+      if (!occupied) {
+        setBuildTile(tile);
+        setSelectedUnit(null);
+      }
+    } else if (phase === 'move') {
+      if (selectedUnit) {
+        handleMove(tile);
+      } else {
+        const unit = gameState.units.find(
+          (u) =>
+            u.faction === 'Player1' &&
+            u.tile?.row === tile.row &&
+            u.tile?.col === tile.col
+        );
+        if (unit) {
+          setSelectedUnit(unit);
+          setBuildTile(null);
+        }
+      }
+    }
+  };
+
+  const endBuildPhase = () => {
+    setBuildTile(null);
+    setPhase('move');
+  };
+  const endMovePhase = () => {
+    setSelectedUnit(null);
+    setPhase('waiting');
+  };
+  const resolveAndAdvance = () => {
+    engineRef.current.nextTurn();
+    refresh();
+    setPhase('build');
+  };
+
+  if (!gameState) return <div>Loading…</div>;
+
+  // === Render data ===
+  const {
+    turn,
+    winner,
+    tiles,
+    units,
+    settlements,
+    playersState,
+    unitStats,
+  } = gameState;
+
+  const resources = playersState.Player1.resources;
+  const techTier = playersState.Player1.techTier;
+
+  const affordable = unitStats
+    .filter((u) => u.tier <= techTier)
+    .filter((u) =>
+      Object.entries(u.cost || {}).every(
+        ([res, amt]) => (resources[res] || 0) >= amt
+      )
+    );
 
   return (
-    <div className="game-screen">
-      <button className="back-btn" onClick={onExit}>
-        ← Back to Menu
-      </button>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* HEADER */}
+      <header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '8px 16px',
+          background: '#333',
+          color: '#fff',
+        }}
+      >
+        <button
+          onClick={onBack}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#fff',
+            fontSize: '18px',
+            cursor: 'pointer',
+          }}
+        >
+          ← Back
+        </button>
+        <h1 style={{ margin: '0 16px', fontSize: '20px' }}>
+          Battle for Aven
+        </h1>
+        <div style={{ marginLeft: 'auto' }}>
+          <strong>Turn {turn}</strong>
+          {winner && (
+            <span style={{ marginLeft: 16, color: '#ff0' }}>
+              🏆 {winner} wins!
+            </span>
+          )}
+        </div>
+      </header>
 
-      <h2>
-        Game: {players} players — {rows}×{cols}
-      </h2>
+      {/* MAIN */}
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+        {/* SIDEBAR */}
+        <aside
+          style={{
+            width: '260px',
+            padding: '16px',
+            background: '#f0f0f0',
+            overflowY: 'auto',
+            boxSizing: 'border-box',
+          }}
+        >
+          {phase === 'build' && (
+            <>
+              <h2>Build Phase</h2>
+              <button onClick={endBuildPhase}>End Build</button>
+            </>
+          )}
+          {phase === 'move' && (
+            <>
+              <h2>Move Phase</h2>
+              <button onClick={endMovePhase}>End Move</button>
+            </>
+          )}
+          {phase === 'waiting' && !winner && (
+            <>
+              <h2>Resolve & AI</h2>
+              <button onClick={resolveAndAdvance}>
+                Resolve Combat & AI Turn
+              </button>
+            </>
+          )}
 
-      {/* debug: show the raw game state */}
-      <pre style={{ maxHeight: '200px', overflow: 'auto' }}>
-        {JSON.stringify(game, null, 2)}
-      </pre>
+          {phase === 'build' && buildTile && (
+            <div style={{ marginTop: '16px' }}>
+              <h3>
+                Build on ({buildTile.row}, {buildTile.col})
+              </h3>
+              {affordable.length ? (
+                affordable.map((u) => (
+                  <button
+                    key={u.type}
+                    style={{ display: 'block', margin: '4px 0' }}
+                    onClick={() => handleBuild(u.type)}
+                  >
+                    {u.type} — {JSON.stringify(u.cost)}
+                  </button>
+                ))
+              ) : (
+                <p>Nothing affordable</p>
+              )}
+              <button onClick={() => setBuildTile(null)}>Cancel</button>
+            </div>
+          )}
 
-      {/* render your board */}
-      <HexBoard rows={rows} cols={cols} />
+          {phase === 'move' && selectedUnit && (
+            <div style={{ marginTop: '16px' }}>
+              <h3>Moving {selectedUnit.type}</h3>
+              <button onClick={() => setSelectedUnit(null)}>Cancel</button>
+            </div>
+          )}
+
+          <section style={{ marginTop: '24px' }}>
+            <h2>Resources</h2>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+              {Object.entries(resources).map(([res, amt]) => (
+                <li key={res}>
+                  {res.charAt(0).toUpperCase() + res.slice(1)}: {amt}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </aside>
+
+        {/* BOARD */}
+        <main
+          style={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: '#e2e2e2',
+          }}
+        >
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              overflow: 'auto',
+              padding: '8px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <HexBoard
+              tiles={tiles}
+              units={units}
+              settlements={settlements}
+              onTileClick={handleTileClick}
+              selected={selectedUnit?.id}
+              highlightTile={buildTile}
+              phase={phase}
+              // pass rows/cols so HexBoard can size itself responsively
+              rows={rows}
+              cols={cols}
+            />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
+
+GameScreen.propTypes = {
+  onBack: PropTypes.func.isRequired,
+  players: PropTypes.number,
+  rows: PropTypes.number,
+  cols: PropTypes.number,
+};

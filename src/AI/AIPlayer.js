@@ -1,13 +1,8 @@
-// src/ai/AIPlayer.js
-
-/**
- * AI Player module for Battle for Aven.
- * Implements simple strategies: aggressive, defensive, balanced.
- */
+// src/AI/AIPlayer.js
 export const AI_STRATEGIES = {
   AGGRESSIVE: 'aggressive',
-  DEFENSIVE: 'defensive',
-  BALANCED:  'balanced',
+  DEFENSIVE:  'defensive',
+  BALANCED:   'balanced',
 };
 
 export default class AIPlayer {
@@ -17,123 +12,113 @@ export default class AIPlayer {
   }
 
   /**
-   * Decide build-phase actions based on available resources and strategy.
-   * @param {Object} gameState - current game state
-   * @returns {Array} list of build actions e.g. [{type: 'build', unit: 'Soldier', tile}]
+   * BUILD phase: choose what to build this turn.
+   * Returns an array of { playerId, unitType, tile }.
+   * This simple AI builds the cheapest available unit until population cap.
    */
   decideBuildPhase(gameState) {
-    const actions = [];
     const me = gameState.players[this.playerId];
-    const resources = {...me.resources};
+    const actions = [];
 
-    // Gather possible builds from stats
-    const candidates = gameState.unitStats.filter(u => u.tier <= me.techTier);
+    // count current population vs cap
+    const popCap = me.population;
+    const popUsed = gameState.units
+      .filter(u => u.faction === this.playerId).length;
+    if (popUsed >= popCap) return actions;  // can't build more
 
-    // Prioritize by strategy
-    let sorted;
-    switch (this.strategy) {
-      case AI_STRATEGIES.AGGRESSIVE:
-        // build highest offense units first
-        sorted = candidates.sort((a, b) => b.attack - a.attack);
-        break;
-      case AI_STRATEGIES.DEFENSIVE:
-        // build highest defense units
-        sorted = candidates.sort((a, b) => b.defense - a.defense);
-        break;
-      default:
-        // balanced: mix attack and defense
-        sorted = candidates.sort((a, b) => (b.attack + b.defense) - (a.attack + a.defense));
+    // gather all unit stats we can afford & tech tier
+    const candidates = gameState.unitStats
+      .filter(u => u.tier <= me.techTier)
+      .filter(u => {
+        // resource check
+        return Object.entries(u.cost || {}).every(
+          ([res, amt]) => (me.resources[res] || 0) >= amt
+        );
+      });
+    if (candidates.length === 0) return actions;
+
+    // pick one unit based on strategy
+    let choice;
+    if (this.strategy === AI_STRATEGIES.AGGRESSIVE) {
+      // pick highest‐tier affordable
+      choice = candidates.sort((a,b) => b.tier - a.tier)[0];
+    } else if (this.strategy === AI_STRATEGIES.DEFENSIVE) {
+      // pick lowest‐cost unit
+      choice = candidates.sort((a,b) => {
+        const costA = Object.values(a.cost||{}).reduce((s,x)=>s+x,0);
+        const costB = Object.values(b.cost||{}).reduce((s,x)=>s+x,0);
+        return costA - costB;
+      })[0];
+    } else {
+      // balanced: mid‐tier
+      choice = candidates[Math.floor(candidates.length/2)];
     }
 
-    // Attempt builds within resource limits
-    for (let unit of sorted) {
-      if (this._canAfford(unit.cost, resources)) {
-        // pick a spawn tile in zone of control
-        const tile = this._chooseSpawnTile(gameState, unit);
-        if (tile) {
-          actions.push({ type: 'build-unit', unit: unit.id, tile });
-          this._spendResources(resources, unit.cost);
-        }
-      }
+    // find a controlled tile to spawn on (any settlement tile)
+    const spawnTiles = gameState.settlements
+      .filter(s => s.faction === this.playerId && s.tile)
+      .map(s => s.tile);
+    if (spawnTiles.length) {
+      actions.push({
+        playerId: this.playerId,
+        unitType: choice.type,
+        tile: spawnTiles[0],
+      });
     }
     return actions;
   }
 
   /**
-   * Decide movement-phase actions: where to move each unit.
-   * @param {Object} gameState
-   * @returns {Array} list of move actions e.g. [{unitId, from, to}]
+   * MOVE phase: move each unit toward a target.
+   * Returns array of { unitId, target }.
    */
   decideMovementPhase(gameState) {
     const actions = [];
-    const units = gameState.units.filter(u => u.owner === this.playerId);
+    const myUnits = gameState.units.filter(u => u.faction === this.playerId);
 
-    for (let unit of units) {
-      const target = this._selectMovementTarget(unit, gameState);
-      if (target && target !== unit.tile) {
-        actions.push({ type: 'move-unit', unitId: unit.id, from: unit.tile, to: target });
+    for (let unit of myUnits) {
+      const neighbors = gameState.map.getNeighbors(unit.tile);
+      if (neighbors.length === 0) continue;
+
+      let target;
+      switch (this.strategy) {
+        case AI_STRATEGIES.AGGRESSIVE:
+          target = gameState.findNearestEnemy(unit.tile, this.playerId, neighbors);
+          break;
+        case AI_STRATEGIES.DEFENSIVE:
+          target = gameState.findNearestFriendlySettlement(unit.tile, this.playerId, neighbors);
+          break;
+        default:
+          // balanced: retreat if hurt, else attack
+          if (unit.hp < (unit.maxHp * 0.5)) {
+            target = gameState.findNearestFriendlySettlement(unit.tile, this.playerId, neighbors);
+          } else {
+            target = gameState.findNearestEnemy(unit.tile, this.playerId, neighbors);
+          }
+      }
+      if (target && (target.row !== unit.tile.row || target.col !== unit.tile.col)) {
+        actions.push({ unitId: unit.id, target });
       }
     }
     return actions;
   }
 
   /**
-   * Assign combat hits for multi-party engagements.
-   * @param {Object} combatData
-   * @returns {Array} list of assignment actions
+   * COMBAT phase (multi‐party): assign hits
+   * For now, simple split across all opponents.
    */
   decideCombatAssignments(combatData) {
     const assignments = [];
-    // combatData.attacks: [{attackerId, targets, hits}]
-    for (let atk of combatData.attacks.filter(a => a.owner === this.playerId)) {
-      // allocate hits per strategy: aggressive focuses on weakest
-      const opponents = atk.targets;
-      const sortedOpp = [...opponents];
-      if (this.strategy === AI_STRATEGIES.AGGRESSIVE) {
-        sortedOpp.sort((a, b) => a.hp - b.hp);
-      } else if (this.strategy === AI_STRATEGIES.DEFENSIVE) {
-        sortedOpp.sort((a, b) => b.threat - a.threat);
-      }
-      let hitsLeft = atk.hits;
-      for (let opp of sortedOpp) {
-        if (hitsLeft <= 0) break;
-        const assign = Math.min(hitsLeft, opp.hp);
-        assignments.push({ attackerId: atk.attackerId, targetId: opp.id, hits: assign });
-        hitsLeft -= assign;
+    for (let fight of combatData) {
+      const { attackerId, hits, opponents } = fight;
+      let remaining = hits;
+      for (let opp of opponents) {
+        if (remaining <= 0) break;
+        const take = Math.min(1, opp.hp);
+        assignments.push({ attackerId, targetId: opp.id, hits: take });
+        remaining -= take;
       }
     }
     return assignments;
-  }
-
-  // --- Helpers ---
-  _canAfford(cost, resources) {
-    return Object.entries(cost).every(([res, amt]) => (resources[res] || 0) >= amt);
-  }
-
-  _spendResources(resources, cost) {
-    for (let [res, amt] of Object.entries(cost)) resources[res] -= amt;
-  }
-
-  _chooseSpawnTile(gameState, unit) {
-    // choose first free tile in zone of control
-    const zoc = gameState.getZoneOfControl(this.playerId);
-    return zoc.find(t => gameState.canSpawn(unit.id, t));
-  }
-
-  _selectMovementTarget(unit, gameState) {
-    // aggressive: nearest enemy, defensive: nearest friendly settlement, balanced: mix
-    const neighbors = gameState.map.getReachable(unit.tile, unit.move);
-    if (neighbors.length === 0) return null;
-    if (this.strategy === AI_STRATEGIES.AGGRESSIVE) {
-      return gameState.findNearestEnemy(unit.tile, this.playerId, neighbors);
-    }
-    if (this.strategy === AI_STRATEGIES.DEFENSIVE) {
-      return gameState.findNearestFriendlySettlement(unit.tile, this.playerId, neighbors);
-    }
-    // balanced: if health low -> defensive else aggressive
-    if (unit.hp < unit.maxHp * 0.5) {
-      return gameState.findNearestFriendlySettlement(unit.tile, this.playerId, neighbors);
-    }
-    return gameState.findNearestEnemy(unit.tile, this.playerId, neighbors);
   }
 }
