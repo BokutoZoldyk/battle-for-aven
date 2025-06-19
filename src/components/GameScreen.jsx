@@ -20,6 +20,7 @@ export default function GameScreen({
   players = 4,
   rows = 10,
   cols = 10,
+  faction = 'Standard',
 }) {
   // === Engine setup ===
   const engineRef = useRef(null);
@@ -37,11 +38,13 @@ export default function GameScreen({
     'Avenguard Paladin': avenguardPaladin,
   };
 
+  const factionIcons = faction === 'Kingdom of Avenguard' ? avenguardIcons : {};
+
   const modelOptions = [
     PLACEHOLDERS.red,
     PLACEHOLDERS.green,
     PLACEHOLDERS.blue,
-    ...Object.values(avenguardIcons),
+    ...Object.values(factionIcons),
   ];
   const [modelSelections, setModelSelections] = useState({
     units: {},
@@ -55,8 +58,8 @@ export default function GameScreen({
     if (!gameState) return;
     const unitMap = {};
     gameState.unitStats?.forEach(u => {
-      if (u.faction === 'Kingdom of Avenguard' && avenguardIcons[u.type]) {
-        unitMap[u.type] = avenguardIcons[u.type];
+      if (u.faction === faction && factionIcons[u.type]) {
+        unitMap[u.type] = factionIcons[u.type];
       } else {
         unitMap[u.type] = PLACEHOLDERS.unit;
       }
@@ -71,7 +74,7 @@ export default function GameScreen({
       buildings: {},
       calamities: {},
     });
-  }, [gameState]);
+  }, [gameState, faction]);
 
   useEffect(() => {
     engineRef.current = new GameEngine({
@@ -187,6 +190,7 @@ export default function GameScreen({
   const techTier = playersState.Player1.techTier;
 
   const affordable = unitStats
+    .filter((u) => u.faction === faction)
     .filter((u) => u.tier <= techTier)
     .filter((u) =>
       Object.entries(u.cost || {}).every(
@@ -255,7 +259,7 @@ export default function GameScreen({
               <button onClick={endBuildPhase}>End Build</button>
               {buildTab === 'units' && (
                 <div style={{ marginTop: 8 }}>
-                  {unitStats.map(u => (
+                  {unitStats.filter(u => u.faction === faction).map(u => (
                     <div key={u.type} style={{ marginBottom: 4 }}>
                       <label>
                         {u.type}
@@ -275,7 +279,7 @@ export default function GameScreen({
               )}
               {buildTab === 'settlements' && (
                 <div style={{ marginTop: 8 }}>
-                  {[...new Set(settlements.map(s => s.type))].map(t => (
+                  {[...new Set(settlements.filter(s => s.faction === faction).map(s => s.type))].map(t => (
                     <div key={t} style={{ marginBottom: 4 }}>
                       <label>
                         {t}
@@ -295,7 +299,7 @@ export default function GameScreen({
               )}
               {buildTab === 'buildings' && (
                 <div style={{ marginTop: 8 }}>
-                  {[...new Set(buildingData.map(b => b.Type))].map(t => (
+                  {[...new Set(buildingData.filter(b => b.Faction === faction).map(b => b.Type))].map(t => (
                     <div key={t} style={{ marginBottom: 4 }}>
                       <label>
                         {t}
@@ -454,4 +458,5 @@ GameScreen.propTypes = {
   players: PropTypes.number,
   rows: PropTypes.number,
   cols: PropTypes.number,
+  faction: PropTypes.string,
 };
