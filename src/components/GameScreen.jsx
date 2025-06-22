@@ -9,7 +9,7 @@ import buildingData from '../data/buildings.json';
 import calamityData from '../data/calamities.json';
 import { PLACEHOLDERS } from '../assets/modelPlaceholders';
 import avenguardArcher from '../data/pictures/KingdomOfAvengaurdArcher.png';
-import avenguardCatapult from '../data/pictures/KingdomOfAvengaurdCatapault.png';
+import avenguardCatapult from '../data/pictures/KingdomOfAvenguardCatapult.png';
 import avenguardKnight from '../data/pictures/KingdomOfAvengaurdKnight.png';
 import avenguardMage from '../data/pictures/KingdomOfAvengaurdMage.png';
 import avenguardPaladin from '../data/pictures/KingdomOfAvengaurdPaladin.png';
@@ -50,28 +50,38 @@ export default function GameScreen({
     calamities: {},
   });
 
-  // once game state is available, prefill model selections with placeholders
-  useEffect(() => {
-    if (!gameState) return;
-    const unitMap = {};
-    gameState.unitStats?.forEach(u => {
-      if (u.faction === 'Kingdom of Avenguard' && avenguardIcons[u.type]) {
-        unitMap[u.type] = avenguardIcons[u.type];
-      } else {
-        unitMap[u.type] = PLACEHOLDERS.unit;
-      }
-    });
-    const settlementMap = {};
-    gameState.settlements?.forEach(s => {
-      settlementMap[s.type] = PLACEHOLDERS.settlement;
-    });
-    setModelSelections({
-      units: unitMap,
-      settlements: settlementMap,
-      buildings: {},
-      calamities: {},
-    });
-  }, [gameState]);
+ useEffect(() => {
+  if (!gameState) return;
+  // ---- existing unit/settlement setup ----
+  const unitMap = {};
+  gameState.unitStats.forEach(u => {
+    unitMap[u.type] = 
+      (u.faction === 'Kingdom of Avenguard' && avenguardIcons[u.type])
+        ? avenguardIcons[u.type]
+        : PLACEHOLDERS.unit;
+  });
+  const settlementMap = {};
+  gameState.settlements.forEach(s => {
+    settlementMap[s.type] = PLACEHOLDERS.settlement;
+  });
+
+  // ---- NEW: initialize buildings & calamities ----
+  const buildingMap = {};
+  buildingData.forEach(b => {
+    buildingMap[b.Type] = PLACEHOLDERS.building;
+  });
+  const calamityMap = {};
+  calamityData.forEach(c => {
+    calamityMap[c.Type] = PLACEHOLDERS.calamity;
+  });
+
+  setModelSelections({
+    units: unitMap,
+    settlements: settlementMap,
+    buildings: buildingMap,
+    calamities: calamityMap,
+  });
+}, [gameState]);
 
   useEffect(() => {
     engineRef.current = new GameEngine({
