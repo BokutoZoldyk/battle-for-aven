@@ -85,6 +85,7 @@ export default function App() {
           players={config.players}
           rows={config.rows}
           cols={config.cols}
+          faction={config.faction}
         />
       );
     default:

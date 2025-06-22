@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function FactionSelect({ players, onBack, onSelect }) {
   const ALL_FACTIONS = [
-    'The Kingdom of Avenguard',
+    'Kingdom of Avenguard',
     'Müselheim',
     'The Woodland Haven',
     'Sons of Rexathimgrod (Rex)',
